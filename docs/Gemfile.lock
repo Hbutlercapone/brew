@@ -24,9 +24,10 @@ GEM
     colorator (1.1.0)
     commonmarker (0.23.10)
     concurrent-ruby (1.2.2)
-    console (1.23.2)
+    console (1.27.0)
       fiber-annotation
-      fiber-local
+      fiber-local (~> 1.1)
+      json
     dnsruby (1.70.0)
       simpleidn (~> 0.2.1)
     em-websocket (0.5.3)
@@ -43,7 +44,9 @@ GEM
     faraday-net_http (3.0.2)
     ffi (1.16.3)
     fiber-annotation (0.2.0)
-    fiber-local (1.0.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.2)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
     github-pages (227)
@@ -222,6 +225,7 @@ GEM
       gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
+    json (2.7.2)
     kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
