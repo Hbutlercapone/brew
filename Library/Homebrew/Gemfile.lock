@@ -86,7 +86,7 @@ GEM
       unparser
     rdiscount (2.2.7.3)
     regexp_parser (2.9.1)
-    rexml (3.3.0)
+    rexml (3.3.6)
       strscan
     ronn (0.7.3)
       hpricot (>= 0.8.2)
