@@ -17,7 +17,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Cache Bundler RubyGems
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -53,7 +53,7 @@ jobs:
       - run: brew config
 
       - name: Cache Bundler RubyGems
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -199,7 +199,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Cache Bundler RubyGems
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -212,7 +212,7 @@ jobs:
         run: mkdir tests
 
       - name: Cache parallel tests log
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tests
           key: ${{ runner.os }}-${{ matrix.test-flags }}-parallel_runtime_rspec-${{ github.sha }}
@@ -227,7 +227,7 @@ jobs:
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: codecov/codecov-action@894ff025c7b54547a9a2a1e9f228beae737ad3c2
+      - uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24
 
   test-default-formula-linux:
     name: test default formula (Linux)
@@ -304,7 +304,7 @@ jobs:
         run: mkdir tests
 
       - name: Cache parallel tests log
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tests
           key: ${{ runner.os }}-parallel_runtime_rspec-${{ github.sha }}
@@ -319,4 +319,4 @@ jobs:
 
       - run: brew test-bot --only-formulae --test-default-formula
 
-      - uses: codecov/codecov-action@894ff025c7b54547a9a2a1e9f228beae737ad3c2
+      - uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24

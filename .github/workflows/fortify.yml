@@ -39,12 +39,12 @@ jobs:
     steps:
       # Check out source code
       - name: Check Out Source Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       # Java is required to run the various Fortify utilities.
       # When scanning a Java application, please use the appropriate Java version for building your application.
       - name: Setup Java
-        uses: actions/setup-java@v3.11.0
+        uses: actions/setup-java@v4.7.1
         with:
           java-version: 1.8
 
@@ -56,7 +56,7 @@ jobs:
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@71c3ccac3b0f0b87d9197b2b03c6f6c71b8397a8
+        uses: fortify/gha-setup-scancentral-client@d9f77850db134579d5df09c149525ecc1726e39a
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:
@@ -92,6 +92,6 @@ jobs:
 
       # Import Fortify on Demand results to GitHub Security Code Scanning
       - name: Import Results
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: ./gh-fortify-sast.sarif
